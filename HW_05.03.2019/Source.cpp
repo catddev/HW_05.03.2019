@@ -111,8 +111,9 @@ int main()
 		break;
 		case 2:
 		{
-			char str[100];
-			cin.getline(str, 100);
+			char str[100]="abcoodefoooo";
+			//cin.getline(str, 100);
+			cout << str << endl << "given size: " << strlen(str) << endl << endl;
 			
 			char*newStr = deleteSym(str); // ошибка при чтении символов строки
 			//cin.get();
