@@ -72,8 +72,12 @@ char* deleteSym(char*str) {
 		s2[i] = *(line+i);
 
 	}*/
+
+	// указатели надо удалять?
+	//delete p;
+	//delete context;
 	
-	return line; // именно при возврате указателя чтото ломается
+	return line;
 }
 
 
@@ -109,10 +113,10 @@ int main()
 		{
 			char str[100];
 			cin.getline(str, 100);
-
-			char*newStr = deleteSym(str);
+			
+			char*newStr = deleteSym(str); // ошибка при чтении символов строки
+			//cin.get();
 			cout << newStr << endl << "new size: " << strlen(newStr) << endl;
-			// when printing newStr
 		}
 		break;
 		default:
