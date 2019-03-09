@@ -18,29 +18,28 @@ void isPalindrome(char *str) {
 	cout << str << endl;
 	char*p;
 	char*context;
-	char line[100];
 	_strlwr(str);
 
 	p = strtok_s(str, " ", &context);
-	strcpy_s(line, p);
+	strcpy(str, p);
 
 	while (p != NULL)
 	{
 		p = strtok_s(context, " ", &context);
 		if (p == NULL) break;
-		strcat_s(line, p);
+		strcat(str, p);
 	}
-	cout << line << endl;
+	cout << str << endl;
 
-	int n = strlen(line);
+	int n = strlen(str);
 	//cout << n << endl;
 	
 	char s[100];
 	int j = 0;
 	for (int i = n; i > n / 2; i--)
-		s[j++] = *(line + i - 1);
+		s[j++] = *(str + i - 1);
 		
-	int f = strncmp(line, s, n/2);
+	int f = strncmp(str, s, n/2);
 
 	if (f == 0) cout << "is a palindrome" << endl << endl;
 	else cout << "not a palindrome" << endl << endl;
@@ -51,25 +50,23 @@ void isPalindrome(char *str) {
 
 char* deleteSym(char*str) {
 	char*p, *context;
-	char line[100];
 	
 	p = strtok_s(str, "o", &context);
-	strcpy_s(line, p);
+	strcpy(str, p); //strcpy_s не принимает почему?
 
 	while (p != NULL)
 	{
 		p = strtok_s(NULL, "o", &context);
 		if (p == NULL) break;
-		strcat_s(line, p);
+		strcat(str, p); //strcat_s не принимает почему?
 	}
-	//line[strlen(line)] = '\0';
-	cout << line << endl;
+	//cout << str << endl;
 
 	// указатели надо удалять?
 	//delete p;
 	//delete context;
 	
-	return line;
+	return str;
 }
 
 
@@ -107,8 +104,7 @@ int main()
 			//cin.getline(str, 100);
 			cout << str << endl << "given size: " << strlen(str) << endl << endl;
 			
-			char*newStr = deleteSym(str); // ошибка при чтении символов строки
-			//cin.get();
+			char*newStr = deleteSym(str);
 			
 			cout << newStr << endl << "new size: " << strlen(newStr) << endl;
 		}
