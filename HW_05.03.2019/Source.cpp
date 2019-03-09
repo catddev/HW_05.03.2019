@@ -15,6 +15,7 @@ using namespace std;
 // Из строки предварительно нужно удалить пробелы и привести ее к одному регистру.
 
 void isPalindrome(char *str) {
+	cout << str << endl;
 	char*p;
 	char*context;
 	char line[100];
@@ -33,13 +34,13 @@ void isPalindrome(char *str) {
 
 	int n = strlen(line);
 	//cout << n << endl;
-	char *s1 = line;
-	char s2[100];
+	
+	char s[100];
 	int j = 0;
 	for (int i = n; i > n / 2; i--)
-		s2[j++] = *(line + i - 1);
+		s[j++] = *(line + i - 1);
 		
-	int f = strncmp(s1, s2, n/2);
+	int f = strncmp(line, s, n/2);
 
 	if (f == 0) cout << "is a palindrome" << endl << endl;
 	else cout << "not a palindrome" << endl << endl;
@@ -54,7 +55,6 @@ char* deleteSym(char*str) {
 	
 	p = strtok_s(str, "o", &context);
 	strcpy_s(line, p);
-	//line[strlen(line)] = '\0';
 
 	while (p != NULL)
 	{
@@ -64,14 +64,6 @@ char* deleteSym(char*str) {
 	}
 	//line[strlen(line)] = '\0';
 	cout << line << endl;
-
-	
-	/*char s2[100];
-	for (int i = 0; i<strlen(line); i++)
-	{
-		s2[i] = *(line+i);
-
-	}*/
 
 	// указатели надо удалять?
 	//delete p;
@@ -117,6 +109,7 @@ int main()
 			
 			char*newStr = deleteSym(str); // ошибка при чтении символов строки
 			//cin.get();
+			
 			cout << newStr << endl << "new size: " << strlen(newStr) << endl;
 		}
 		break;
